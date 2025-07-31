@@ -1,0 +1,12 @@
+{
+  "name": "court-data-fetcher---mini-dashboard",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "lint": "cd client && npm run lint",
+    "preview": "cd client && npm run preview"
+  }
+} 
