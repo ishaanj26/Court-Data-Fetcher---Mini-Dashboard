@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
 function Help() {
+  React.useEffect(() => {
+    document.title = 'Help | Court Data Fetcher';
+  }, []);
   const [openFaq, setOpenFaq] = useState(null)
 
   const faqs = [

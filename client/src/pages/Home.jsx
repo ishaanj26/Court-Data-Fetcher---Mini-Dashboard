@@ -3,6 +3,9 @@ import { motion } from 'framer-motion'
 import MainPage from '../MainPage/MainPage'
 
 function Home() {
+  React.useEffect(() => {
+    document.title = 'Home | Court Data Fetcher';
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

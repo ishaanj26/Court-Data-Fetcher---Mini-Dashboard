@@ -1,0 +1,16 @@
+{
+  "name": "Court Data Fetcher",
+  "short_name": "CourtFetcher",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f59e42",
+  "theme_color": "#f59e42",
+  "description": "A mini dashboard for court data search and legal research.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

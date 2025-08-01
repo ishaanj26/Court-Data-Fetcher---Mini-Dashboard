@@ -3,6 +3,9 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 function Features() {
+  React.useEffect(() => {
+    document.title = 'Features | Court Data Fetcher';
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

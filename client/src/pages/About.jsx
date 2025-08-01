@@ -2,6 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 function About() {
+  React.useEffect(() => {
+    document.title = 'About | Court Data Fetcher';
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

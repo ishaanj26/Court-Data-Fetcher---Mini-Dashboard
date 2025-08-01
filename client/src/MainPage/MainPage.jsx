@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Toaster, toast } from 'react-hot-toast'
 
 function MainPage() {
   const [formData, setFormData] = useState({
@@ -71,6 +72,7 @@ function MainPage() {
         type: 'success',
         text: 'Case data retrieved successfully! Check the console for details.'
       })
+      toast.success('Case data retrieved successfully!')
       
       console.log('Form submitted:', formData)
       // TODO: Add actual API call here
@@ -80,12 +82,15 @@ function MainPage() {
         type: 'error',
         text: 'Failed to retrieve case data. Please try again.'
       })
+      toast.error('Failed to retrieve case data. Please try again.')
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
+    <>
+      <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-stone-50 to-amber-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Card with law-themed styling */}
@@ -137,6 +142,7 @@ function MainPage() {
               <select
                 id="caseType"
                 name="caseType"
+                aria-label="Case Type"
                 value={formData.caseType}
                 onChange={handleInputChange}
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200 bg-white ${
@@ -167,6 +173,7 @@ function MainPage() {
                 type="text"
                 id="caseNumber"
                 name="caseNumber"
+                aria-label="Case Number"
                 value={formData.caseNumber}
                 onChange={handleInputChange}
                 placeholder="e.g., 2024-CV-001234"
@@ -188,6 +195,7 @@ function MainPage() {
                 type="number"
                 id="filingYear"
                 name="filingYear"
+                aria-label="Filing Year"
                 value={formData.filingYear}
                 onChange={handleInputChange}
                 min="1900"
@@ -205,6 +213,7 @@ function MainPage() {
             {/* Submit Button */}
             <button
               type="submit"
+              aria-label="Search Case Data"
               disabled={isLoading}
               className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 transform ${
                 isLoading 
@@ -247,6 +256,7 @@ function MainPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
