@@ -1,13 +1,13 @@
 import MainPage from './MainPage/MainPage'
-// import Header from './Header/Header'
-// import Footer from './Footer/Footer'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
 
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <MainPage />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
