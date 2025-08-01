@@ -1,14 +1,27 @@
-import MainPage from './MainPage/MainPage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
+import Home from './pages/Home'
+import About from './pages/About'
+import Features from './pages/Features'
+import Help from './pages/Help'
 
 function App() {
   return (
-    <>
-      <Header />
-      <MainPage />
-      <Footer />
-    </>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/help" element={<Help />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

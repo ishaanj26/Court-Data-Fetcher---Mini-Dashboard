@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -8,7 +9,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Project Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
+            <Link to="/" className="flex items-center space-x-3 mb-4 hover:opacity-90 transition-opacity">
               <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clipRule="evenodd" />
@@ -20,7 +21,7 @@ function Footer() {
                 </h3>
                 <p className="text-sm text-slate-400 font-medium">Legal Research Platform</p>
               </div>
-            </div>
+            </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-6">
               A comprehensive tool for searching and retrieving court records, case information, 
               and legal documents across multiple jurisdictions. Streamline your legal research 
@@ -52,28 +53,22 @@ function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#about" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
+                <Link to="/about" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
                   <span className="w-1 h-1 bg-amber-500 rounded-full mr-2 group-hover:scale-150 transition-transform"></span>
                   About Project
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#features" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
+                <Link to="/features" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
                   <span className="w-1 h-1 bg-amber-500 rounded-full mr-2 group-hover:scale-150 transition-transform"></span>
                   Features
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#api" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
-                  <span className="w-1 h-1 bg-amber-500 rounded-full mr-2 group-hover:scale-150 transition-transform"></span>
-                  API Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#help" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
+                <Link to="/help" className="text-slate-400 hover:text-white transition-all duration-200 text-sm flex items-center group">
                   <span className="w-1 h-1 bg-amber-500 rounded-full mr-2 group-hover:scale-150 transition-transform"></span>
                   Help & Support
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

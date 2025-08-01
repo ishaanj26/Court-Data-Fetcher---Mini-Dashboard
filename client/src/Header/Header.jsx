@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const isActive = (path) => {
+    return location.pathname === path
+  }
 
   return (
     <header className="bg-gradient-to-r from-slate-900 via-slate-800 to-amber-900 text-white shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Title */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
             <div className="flex-shrink-0">
               <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -22,22 +28,40 @@ function Header() {
               </h1>
               <p className="text-xs text-amber-200 font-medium">Legal Research Platform</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#about" className="text-amber-200 hover:text-white transition-all duration-200 text-sm font-medium hover:scale-105">
+            <Link 
+              to="/about" 
+              className={`transition-all duration-200 text-sm font-medium hover:scale-105 ${
+                isActive('/about') 
+                  ? 'text-white' 
+                  : 'text-amber-200 hover:text-white'
+              }`}
+            >
               About
-            </a>
-            <a href="#features" className="text-amber-200 hover:text-white transition-all duration-200 text-sm font-medium hover:scale-105">
+            </Link>
+            <Link 
+              to="/features" 
+              className={`transition-all duration-200 text-sm font-medium hover:scale-105 ${
+                isActive('/features') 
+                  ? 'text-white' 
+                  : 'text-amber-200 hover:text-white'
+              }`}
+            >
               Features
-            </a>
-            <a href="#api" className="text-amber-200 hover:text-white transition-all duration-200 text-sm font-medium hover:scale-105">
-              API Docs
-            </a>
-            <a href="#help" className="text-amber-200 hover:text-white transition-all duration-200 text-sm font-medium hover:scale-105">
+            </Link>
+            <Link 
+              to="/help" 
+              className={`transition-all duration-200 text-sm font-medium hover:scale-105 ${
+                isActive('/help') 
+                  ? 'text-white' 
+                  : 'text-amber-200 hover:text-white'
+              }`}
+            >
               Help
-            </a>
+            </Link>
           </nav>
 
           {/* Status and Mobile Menu Button */}
@@ -68,18 +92,39 @@ function Header() {
         {isMenuOpen && (
           <div className="md:hidden bg-slate-800/50 border-t border-slate-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#about" className="block px-3 py-2 rounded-md text-amber-200 hover:text-white hover:bg-slate-700/50 transition-colors text-sm font-medium">
+              <Link 
+                to="/about" 
+                className={`block px-3 py-2 rounded-md transition-colors text-sm font-medium ${
+                  isActive('/about')
+                    ? 'text-white bg-slate-700/50'
+                    : 'text-amber-200 hover:text-white hover:bg-slate-700/50'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 About
-              </a>
-              <a href="#features" className="block px-3 py-2 rounded-md text-amber-200 hover:text-white hover:bg-slate-700/50 transition-colors text-sm font-medium">
+              </Link>
+              <Link 
+                to="/features" 
+                className={`block px-3 py-2 rounded-md transition-colors text-sm font-medium ${
+                  isActive('/features')
+                    ? 'text-white bg-slate-700/50'
+                    : 'text-amber-200 hover:text-white hover:bg-slate-700/50'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Features
-              </a>
-              <a href="#api" className="block px-3 py-2 rounded-md text-amber-200 hover:text-white hover:bg-slate-700/50 transition-colors text-sm font-medium">
-                API Docs
-              </a>
-              <a href="#help" className="block px-3 py-2 rounded-md text-amber-200 hover:text-white hover:bg-slate-700/50 transition-colors text-sm font-medium">
+              </Link>
+              <Link 
+                to="/help" 
+                className={`block px-3 py-2 rounded-md transition-colors text-sm font-medium ${
+                  isActive('/help')
+                    ? 'text-white bg-slate-700/50'
+                    : 'text-amber-200 hover:text-white hover:bg-slate-700/50'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Help
-              </a>
+              </Link>
             </div>
           </div>
         )}
