@@ -64,19 +64,24 @@ function MainPage() {
     setIsLoading(true)
     setMessage({ type: '', text: '' })
     
-    // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
+      const response = await fetch('http://localhost:8080/api/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.error || 'Server error')
+      }
       setMessage({
         type: 'success',
-        text: 'Case data retrieved successfully! Check the console for details.'
+        text: 'Case data retrieved successfully!'
       })
       toast.success('Case data retrieved successfully!')
-      
-      console.log('Form submitted:', formData)
-      // TODO: Add actual API call here
-      
+      console.log('Server response:', data)
     } catch (error) {
       setMessage({
         type: 'error',
